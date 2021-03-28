@@ -21,3 +21,14 @@
   min-height: 90vh;
   margin-top: 10%;
 }
+
+.create-account-form{
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.create-account-background{
+  justify-content: center;
+  min-height: 30vh;
+  padding: 50px;
+}
