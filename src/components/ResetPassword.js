@@ -7,7 +7,7 @@ export default class ResetPassword extends React.Component {
         return (
             <div>
                 <Grid container spacing={0} justify="center" direction="column" alignItems="center">
-                    <Grid item justify="center">
+                    <Grid item>
                         <div>
                             <h1>Password Reset</h1>
                             <h5>Enter Email id for resetting password.</h5>
