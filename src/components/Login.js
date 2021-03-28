@@ -1,21 +1,12 @@
+import { Button, Grid, Link, Paper, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import '../App.css';
-import { Button, Grid, TextField, Link, Paper, AppBar, Toolbar, Typography } from '@material-ui/core';
 
 class LoginComponent extends React.Component {
 
     render() {
         return (
             <div>
-                <AppBar position="static" alignitems="center" color="primary">
-                    <Toolbar>
-                        <Grid container justify="center" wrap="wrap">
-                            <Grid item>
-                                <Typography variant="h6">WorkLog</Typography>
-                            </Grid>
-                        </Grid>
-                    </Toolbar>
-                </AppBar>
                 <Grid container spacing={0} justify="center" direction="row">
                     <Grid item>
                         <Grid
