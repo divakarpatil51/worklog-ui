@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import TopBar from './components/TopBar'
+import Dashboard from './components/Dashboard'
 
 ReactDOM.render(
-  <App />,
+  <div>
+    <TopBar />
+    <Dashboard />
+  </div>,
   document.getElementById('root')
 );
 

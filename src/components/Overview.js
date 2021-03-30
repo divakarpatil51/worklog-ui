@@ -36,15 +36,14 @@ export default function Overview() {
     return (
         <Paper
             variant="elevation"
-            elevation={2}
-            className="overview-background">
+            elevation={2}>
             <Grid container direction="row">
                 <Grid item >
                     <h1 className='title'>Overview</h1>
                 </Grid>
 
                 <Grid item style={{ marginLeft: 60 + "%" }}>
-                    <h1 className='title' >April 2020</h1>
+                    <h1 className='title'>April 2020</h1>
                 </Grid>
             </Grid>
             <Grid container direction="row">
