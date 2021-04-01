@@ -11,19 +11,6 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import CreateWorklog from './CreateWorklog'
 
-
-function createData(worklogType, project, date, comment) {
-    return { worklogType, project, date, comment };
-}
-
-const rows = [
-    createData('Remote', "Onboarding", "3 Mar 2020", "home"),
-    createData('Office', "Onboarding", "3 Mar 2020", "Office"),
-    createData('Vacation', "Onboarding", "3 Mar 2020", "Long"),
-    createData('Holiday', "Onboarding", "3 Mar 2020", "Short"),
-    createData('Sick', "Onboarding", "3 Mar 2020", "Flu")
-];
-
 const headCells = [
     { id: 'worklog_type', numeric: false, disablePadding: true, label: 'Worklog Type' },
     { id: 'project', numeric: true, disablePadding: false, label: 'Project' },
@@ -68,7 +55,7 @@ export default class Worklogs extends React.Component {
                         <TableRow>
                             <TableCell padding="checkbox">
                                 <Checkbox
-                                    inputProps={{ 'aria-label': 'select all desserts' }}
+                                    inputProps={{ 'aria-label': 'select all worklogs' }}
                                 />
                             </TableCell>
                             {headCells.map((headCell) => (
@@ -81,7 +68,7 @@ export default class Worklogs extends React.Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row, index) => {
+                        {this.props.data.map((row, index) => {
                             const labelId = `enhanced-table-checkbox-${index}`;
 
                             return (
@@ -89,7 +76,7 @@ export default class Worklogs extends React.Component {
                                     hover
                                     role="checkbox"
                                     tabIndex={-1}
-                                    key={row.name}
+                                    key={row.worklogType}
                                 >
                                     <TableCell padding="checkbox" align="center">
                                         <Checkbox
