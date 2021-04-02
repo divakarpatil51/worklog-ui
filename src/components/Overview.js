@@ -82,7 +82,17 @@ export default class Overview extends React.Component {
                                 },
                                 legend: {
                                     display: false
-                                }
+                                },
+                                scales: {
+                                    yAxes: [
+                                      {
+                                        ticks: {
+                                          beginAtZero: true,
+                                          precision: 0
+                                        },
+                                      },
+                                    ],
+                                  },
                             }} />
                     </Grid>
                 </Grid>
