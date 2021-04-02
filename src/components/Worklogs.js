@@ -31,6 +31,7 @@ export default class Worklogs extends React.Component {
         this.setState({
             createWorklog: show
         })
+        this.props.refresh()
     }
 
     render() {
@@ -76,7 +77,7 @@ export default class Worklogs extends React.Component {
                                     hover
                                     role="checkbox"
                                     tabIndex={-1}
-                                    key={row.worklogType}
+                                    key={row.id}
                                 >
                                     <TableCell padding="checkbox" align="center">
                                         <Checkbox

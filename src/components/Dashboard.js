@@ -11,6 +11,7 @@ export default class Dashboard extends React.Component {
             data: [],
             worklogTypeCount: {}
         }
+        this.refresh = this.refresh.bind(this)
     }
 
     getData() {
@@ -40,6 +41,10 @@ export default class Dashboard extends React.Component {
         this.getData()
     }
 
+    refresh(){
+        this.getData()
+    }
+
     render() {
         return (
             <Grid container direction="column" spacing={2}>
@@ -47,7 +52,7 @@ export default class Dashboard extends React.Component {
                     <Overview data={this.state.worklogTypeCount} />
                 </Grid>
                 <Grid item>
-                    <Worklogs data={this.state.data} />
+                    <Worklogs data={this.state.data} refresh={this.refresh}/>
                 </Grid>
             </Grid>
         )

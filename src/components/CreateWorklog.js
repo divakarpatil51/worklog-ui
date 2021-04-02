@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import CloseIcon from '@material-ui/icons/Close'
 import React from 'react'
+import moment from 'moment'
 
 const styles = (theme) => ({
   root: {
@@ -44,11 +45,16 @@ export default class CreateWorklog extends React.Component {
     console.log("in Createworklog")
     this.state = {
       worklogType: 'Remote',
-      project: 'Backend'
+      project: 'Backend',
+      date: moment(new Date()).format('YYYY-MM-DD'),
+      comment: ''
     }
     this.worklogTypeChange = this.worklogTypeChange.bind(this)
     this.createWorklog = this.createWorklog.bind(this)
-    this.showCreateWorklogDialog = this.closeDialog.bind(this)
+    this.closeDialog = this.closeDialog.bind(this)
+    this.projectChange = this.projectChange.bind(this)
+    this.dateChange = this.dateChange.bind(this)
+    this.commentChange = this.commentChange.bind(this)
   }
 
   worklogTypeChange(event) {
@@ -64,16 +70,45 @@ export default class CreateWorklog extends React.Component {
     })
   }
 
-  createWorklog() {
-    console.log(this.state)
-    this.closeDialog()
+  dateChange(event) {
+    this.setState({
+      date: event.target.value
+    })
   }
 
-  closeDialog(){
+  commentChange(event) {
+    this.setState({
+      comment: event.target.value
+    })
+  }
+
+  createWorklog() {
+    console.log(this.state)
+    let _body = {
+      "worklogType": this.state.worklogType,
+      "project": this.state.project,
+      "date": moment(this.state.date).format('DD-MM-YYYY'),
+      "comment": this.state.comment
+    }
+    fetch("http://localhost:5000/api/v1/users/test/worklog", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(_body)
+    }).then(res => res.json()).then((result) => {
+      this.closeDialog()
+    })
+    
+  }
+
+  closeDialog() {
     this.props.showDialog(false)
   }
 
   render() {
+    
+    console.log()
     return (
 
       <Dialog open={this.props.createWorklog} aria-labelledby="customized-dialog-title" fullWidth spacing={5}>
@@ -83,7 +118,6 @@ export default class CreateWorklog extends React.Component {
         <DialogContent dividers>
           <Grid container direction="column" spacing={3} justify="space-around">
             <Grid item>
-              
               <InputLabel id="worklogType">Worklog Type</InputLabel>
               <Select labelId="worklogType" value={this.state.worklogType}
                 onChange={this.worklogTypeChange}>
@@ -111,7 +145,8 @@ export default class CreateWorklog extends React.Component {
                 <TextField
                   id="date"
                   type="date"
-                  defaultValue="2017-05-24"
+                  value={this.state.date}
+                  onChange={this.dateChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -120,7 +155,7 @@ export default class CreateWorklog extends React.Component {
             </Grid>
             <Grid item>
               <InputLabel id="project">Comment</InputLabel>
-              <Input />
+              <Input onChange={this.commentChange} />
             </Grid>
           </Grid>
         </DialogContent>
