@@ -15,7 +15,7 @@ export default class Dashboard extends React.Component {
     }
 
     getData() {
-        fetch("http://localhost:5000/api/v1/users/test/worklog").then(res => res.json()).then((result) => {
+        fetch("http://worklog-backend:5000/api/v1/users/test/worklog").then(res => res.json()).then((result) => {
             let worklogTypeCount = this.worklogOverviewData(result)
             this.setState({
                 data: result,
