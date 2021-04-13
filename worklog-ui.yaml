@@ -17,6 +17,9 @@ spec:
       containers:
       - image: docker.io/divakar51/worklog-ui:latest
         name: worklog-ui
+        env:
+         - name: REACT_APP_BACKEND_HOST
+           value: http://localhost:80
         ports:
         - containerPort: 3000
         resources:
@@ -34,7 +37,7 @@ kind: Service
 metadata:
   name: worklog-ui
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: worklog-ui
   ports:
