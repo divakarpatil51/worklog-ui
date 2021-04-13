@@ -83,14 +83,14 @@ export default class CreateWorklog extends React.Component {
   }
 
   createWorklog() {
-    console.log(this.state)
     let _body = {
       "worklogType": this.state.worklogType,
       "project": this.state.project,
       "date": moment(this.state.date).format('DD-MM-YYYY'),
       "comment": this.state.comment
     }
-    fetch("http://localhost:5000/api/v1/users/test/worklog", {
+    let host = process.env.REACT_APP_BACKEND_HOST
+    fetch(host + "/api/v1/users/test/worklog", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
