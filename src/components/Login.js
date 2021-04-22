@@ -56,7 +56,7 @@ class LoginComponent extends React.Component {
                                         />
                                     </Grid>
                                     <Grid item>
-                                        <Link href="#" variant="body2">
+                                        <Link href="/reset-password" variant="body2">
                                             Forgot Password?
                                         </Link>
                                     </Grid>
@@ -76,7 +76,7 @@ class LoginComponent extends React.Component {
                             <Typography>
                                 Don't have an account yet?
                             </Typography>
-                            <Link href="#" variant="body1">
+                            <Link href="/create-account" variant="body1">
                                 Create your account
                             </Link>
                         </Grid>

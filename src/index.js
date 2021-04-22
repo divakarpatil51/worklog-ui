@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 import LoginComponent from './components/Login';
 import ResetPassword from './components/ResetPassword';
 import TopBar from './components/TopBar';
+import CreateAccount from './components/CreateAccount';
 import './index.css';
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/login" component={LoginComponent}/>
         <Route path="/reset-password" component={ResetPassword}/>
+        <Route path="/create-account" component={CreateAccount}/>
         <Route path={["/dashboard", "/"]} component={Dashboard}/>
       </Switch>
     </Router>
