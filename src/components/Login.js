@@ -4,72 +4,83 @@ import '../App.css';
 
 class LoginComponent extends React.Component {
 
+    constructor(props) {
+        super(props)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.history.push("/dashboard")
+    }
+
     render() {
         return (
-            <div>
-                <Grid container spacing={0} justify="center" direction="row">
-                    <Grid item>
-                        <Grid
-                            container
-                            direction="column"
-                            justify="center"
-                            spacing={2}
-                            className="login-form">
-                            <Paper
-                                variant="elevation"
-                                elevation={2}
-                                className="login-background">
-                                <Grid item>
-                                    <Typography component="h1" variant="h5">
-                                        Sign in
-                                    </Typography>
+            <div className="login-form">
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    spacing={2}>
+                    <Paper
+                        variant="elevation"
+                        elevation={2}
+                        className="login-background">
+                        <Grid item style={{marginLeft: 38 + "%"}}>
+                            <Typography component="h5" variant="h5">
+                                LOGIN
+                            </Typography>
+                        </Grid>   
+                        <Grid item style={{marginTop: 10 + "%"}}>
+                            <form onSubmit={this.handleSubmit}>
+                                <Grid container direction="column" spacing={2}>
+                                    <Grid item>
+                                        <TextField
+                                            type="email"
+                                            placeholder="Email"
+                                            fullWidth
+                                            name="username"
+                                            variant="outlined"
+                                            required
+                                            autoFocus
+                                        />
+                                    </Grid>
+                                    <Grid item>
+                                        <TextField
+                                            type="password"
+                                            placeholder="Password"
+                                            fullWidth
+                                            name="password"
+                                            variant="outlined"
+                                            required
+                                        />
+                                    </Grid>
+                                    <Grid item>
+                                        <Link href="#" variant="body2">
+                                            Forgot Password?
+                                        </Link>
+                                    </Grid>
+                                    <Grid item>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            type="submit"
+                                            className="button-block">
+                                            Login
+                                         </Button>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <form onSubmit={this.handleSubmit}>
-                                        <Grid container direction="column" spacing={2}>
-                                            <Grid item>
-                                                <TextField
-                                                    type="email"
-                                                    placeholder="Email"
-                                                    fullWidth
-                                                    name="username"
-                                                    variant="outlined"
-
-                                                    required
-                                                    autoFocus
-                                                />
-                                            </Grid>
-                                            <Grid item>
-                                                <TextField
-                                                    type="password"
-                                                    placeholder="Password"
-                                                    fullWidth
-                                                    name="password"
-                                                    variant="outlined"
-                                                    required
-                                                />
-                                            </Grid>
-                                            <Grid item>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    type="submit"
-                                                    className="button-block"
-                                                >
-                                                    Submit
-                                                </Button>
-                                            </Grid>
-                                        </Grid>
-                                    </form>
-                                </Grid>
-                                <Grid item>
-                                    <Link href="#" variant="body2">
-                                        Forgot Password?
-                                    </Link>
-                                </Grid>
-                            </Paper>
+                            </form>
                         </Grid>
-                    </Grid>
+                        <Grid item style={{marginTop: 10 + "%"}}>
+                            <Typography>
+                                Don't have an account yet?
+                            </Typography>
+                            <Link href="#" variant="body1">
+                                Create your account
+                            </Link>
+                        </Grid>
+                    </Paper>
                 </Grid>
             </div>
         )
