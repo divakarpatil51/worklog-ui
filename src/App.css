@@ -17,13 +17,6 @@
   min-width: 40vh;
 }
 
-.reset-password-form
-{
-  justify-content: center;
-  min-height: 90vh;
-  margin-top: 10%;
-}
-
 .create-account-form{
   margin-top: 5%;
   justify-content: center;
@@ -35,4 +28,17 @@
   justify-content: center;
   background-color:rgb(248, 242, 242);
   min-height: 92vh;
+}
+
+.reset-password-background {
+  justify-content: center;
+  background-color:rgb(248, 242, 242);
+  min-height: 92vh;
+}
+
+.reset-password-form{
+  margin-top: 5%;
+  justify-content: center;
+  min-height: 30vh;
+  padding: 50px;
 }
